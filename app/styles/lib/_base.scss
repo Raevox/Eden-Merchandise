@@ -1,5 +1,14 @@
 @import 'vendor';
 
+$neutralPrimary: hsl(192, 15%, 94%);
+
+@font-fact {
+  src: url('../avenir-next-bold.otf');
+
+  font-family: 'Avenir Next';
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
 }
