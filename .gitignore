@@ -111,3 +111,7 @@ jspm_packages
 
 # Output of 'npm pack'
 *.tgz
+
+### Custom ###
+dist/styles
+dist/scripts
