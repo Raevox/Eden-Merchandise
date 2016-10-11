@@ -1,0 +1,19 @@
+{
+  "name": "eden-merch",
+  "version": "0.1.0",
+  "description": "The Iron Yard - Frontend Engineering - Assignment #9",
+  "main": "dist/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raevox/Eden-Mock-Website.git"
+  },
+  "author": "Manpreet \"Mannie\" Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raevox/Eden-Mock-Website/issues"
+  },
+  "homepage": "https://github.com/raevox/Eden-Mock-Website#readme"
+}
