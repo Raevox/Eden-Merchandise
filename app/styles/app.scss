@@ -1,5 +1,56 @@
 @import 'lib/base';
 
+body {
+  background-color: hsl(220, 20%, 3%);
+}
+
+#splash {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+
+  width: 100%;
+  height: 60%;
+  min-height: 600px;
+
+  background: url('../images/splash.jpg') center 102%/auto no-repeat;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+
+  background-color: transparentize($neutralPrimary, 0.8);
+}
+
+.outer {
+  @include size(100%, 9rem);
+
+  .inner {
+    position: relative;
+    top: 50%;
+    @include transform(translateY(-50%));
+
+    height: 5.8rem;
+
+    border-top: 1px solid $neutralPrimary;
+    border-top: 1px solid $neutralPrimary;
+
+    #title {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include transform(translate(-50%, -50%));
+
+      text-transform: uppercase;
+
+      font-family: 'Avenir Next';
+      font-weight: bold;
+      font-size: 3.6rem;
+    }
+  }
+}
+
 /* 768px >= */
 @include media-breakpoint-up(md) {
 }
