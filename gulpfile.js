@@ -21,7 +21,10 @@ const scriptSources = [
 
 gulp.task('styles', () => {
   const sassConfig = {
-    includePaths: []
+    includePaths: [
+      path.join(__dirname, 'node_modules/tether/dist/css'),
+      path.join(__dirname, 'node_modules/bootstrap/scss')
+    ]
   };
 
   return gulp.src(styleSources)
