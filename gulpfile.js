@@ -22,6 +22,7 @@ const scriptSources = [
 gulp.task('styles', () => {
   const sassConfig = {
     includePaths: [
+      require('node-bourbon').includePaths,
       path.join(__dirname, 'node_modules/tether/dist/css'),
       path.join(__dirname, 'node_modules/bootstrap/scss')
     ]
