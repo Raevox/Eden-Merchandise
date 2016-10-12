@@ -114,8 +114,8 @@ body {
   min-height: 800px; /* TODO: Remove after data is in place maybe? */
   margin-top: 26rem;
 
-  background-color: hsl(90, 100%, 96%);
-  border-top: 12px solid hsl(89, 69%, 72%);
+  background-color: $backgroundPrimary;
+  border-top: 12px solid $backgroundAccent;
 }
 
 /* 768px >= */
