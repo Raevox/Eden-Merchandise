@@ -23,6 +23,7 @@
     "bootstrap": "^4.0.0-alpha.4",
     "browser-sync": "^2.17.2",
     "browserify": "^13.1.0",
+    "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-sass": "^2.3.2",
