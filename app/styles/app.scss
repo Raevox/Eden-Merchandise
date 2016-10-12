@@ -325,6 +325,54 @@ body {
   }
 }
 
+#shopping-cart {
+  position: absolute;
+  top: 5.5rem;
+  right: -2px; /* TODO: Change to -100% when done testing */
+
+  min-width: 20rem;
+
+  padding: 2rem;
+
+  font-size: 0;
+
+  color: darken($accent, 15%);
+  background-color: $primary;
+  border-top: 2px solid $accent;
+  border-left: 2px solid $accent;
+  border-bottom: 2px solid $accent;
+
+  text-align: right;
+  transition: right 0.2s ease-out;
+
+  &.active {
+    right: -2px
+  }
+
+  #checkout {
+    div {
+      font-size: 2rem;
+      font-weight: bold;
+
+      text-transform: uppercase;
+    }
+
+    hr {
+      margin: 0 0 1.2rem 0;
+      padding: 0;
+      border: 1px solid $accent;
+    }
+
+    span {
+      font-size: 1.6rem;
+
+      &.label {
+        float: left;
+      }
+    }
+  }
+}
+
 /* 543px <= */
 @include media-breakpoint-down(sm) {
   .product {
