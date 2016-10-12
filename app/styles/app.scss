@@ -109,6 +109,8 @@ body {
 }
 
 .container-fluid {
+  position: relative;
+
   width: 100%;
   min-height: 800px; /* TODO: Remove after data is in place maybe? */
   margin-top: 26rem;
@@ -182,6 +184,7 @@ body {
       border-left: 2px solid $accent;
       border-bottom: 2px solid $accent;
 
+      cursor: pointer;
       transition: color 0.2s ease-out,
                   background-color 0.2s ease-out,
                   box-shadow 0.2s ease-out;
@@ -218,7 +221,7 @@ body {
       display: inline-block;
       overflow: auto;
 
-      width: calc(25%);
+      width: 25%;
       height: 100%;
 
       font-size: 2rem;
@@ -227,6 +230,7 @@ body {
       background-color: $primary;
       border-right: 2px solid $accent;
 
+      cursor: pointer;
       transition: color 0.2s ease-out,
                   background-color 0.2s ease-out,
                   box-shadow 0.2s ease-out;
@@ -286,6 +290,38 @@ body {
     .back {
       @include transform(rotateY(0));
     }
+  }
+}
+
+#shopping-cart-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  box-sizing: content-box;
+  @include size(5.5rem);
+
+  font-size: 2.4rem;
+
+  color: $accent;
+  background-color: $primary;
+  border-left: 2px solid $accent;
+  border-bottom: 2px solid $accent;
+
+  cursor: pointer;
+  transition: color 0.2s ease-out,
+              background-color 0.2s ease-out;
+
+  &:hover {
+    color: $primary;
+    background-color: $accent;
+  }
+
+  .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
   }
 }
 
