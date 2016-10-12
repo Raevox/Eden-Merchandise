@@ -291,6 +291,10 @@ body {
 @include media-breakpoint-down(sm) {
     #products {
       @include make-col(12);
+
+      .product {
+        margin-top: 1.4rem;
+      }
     }
 
     #shopping-cart {
@@ -302,9 +306,17 @@ body {
 
 /* 768px >= */
 @include media-breakpoint-up(md) {
+  .container-fluid {
+    padding: 2rem 4rem;
+  }
+
   #storefront {
     #products {
       @include make-col(9);
+
+      .product {
+        margin-right: 1.4rem;
+      }
     }
 
     #shopping-cart {
