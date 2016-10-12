@@ -6,6 +6,11 @@ $neutralPrimary: hsl(192, 15%, 94%);
 $backgroundPrimary: hsl(90, 100%, 96%);
 $backgroundAccent: hsl(89, 69%, 72%);
 
+@mixin make-square($size, $color) {
+  @include size($size);
+  background-color: $color;
+}
+
 @font-fact {
   src: url('../avenir-next-bold.otf');
 
