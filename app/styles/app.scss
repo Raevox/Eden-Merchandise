@@ -268,8 +268,12 @@ body {
   }
 
   .information {
+    margin-top: 1rem;
+
     font-size: 1.6rem;
     font-weight: regular;
+
+    color: darken($accent, 15%);
 
     .price {
       float: right;
