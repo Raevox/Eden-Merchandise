@@ -297,7 +297,7 @@ body {
       @include make-col(12);
 
       .product {
-        margin-top: 1.4rem;
+        margin-top: 3rem;
       }
     }
 
@@ -311,7 +311,7 @@ body {
 /* 768px >= */
 @include media-breakpoint-up(md) {
   .container-fluid {
-    padding: 4rem 6rem;
+    padding: 1rem 5rem;
   }
 
   #storefront {
@@ -319,6 +319,7 @@ body {
       @include make-col(9);
 
       .product {
+        margin-top: 3rem;
         margin-right: 3rem;
       }
     }
