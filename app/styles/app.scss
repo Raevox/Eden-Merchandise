@@ -115,6 +115,8 @@ body {
   min-height: 800px; /* TODO: Remove after data is in place maybe? */
   margin-top: 26rem;
 
+  overflow-x: hidden;
+
   background-color: $primary;
   border-top: 12px solid $accent;
 
