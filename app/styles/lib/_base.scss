@@ -2,9 +2,11 @@
 
 $black: hsl(204, 4%, 23%);
 
+$primary: hsl(89, 73%, 61%);
 $neutralPrimary: hsl(192, 15%, 94%);
-$backgroundPrimary: hsl(90, 100%, 96%);
-$backgroundAccent: hsl(89, 69%, 72%);
+
+$bgPrimary: hsl(90, 100%, 96%);
+$bgAccent: hsl(89, 69%, 72%);
 
 @mixin make-square($size, $color) {
   @include size($size);
