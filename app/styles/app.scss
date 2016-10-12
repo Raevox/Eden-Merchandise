@@ -307,7 +307,7 @@ body {
 /* 768px >= */
 @include media-breakpoint-up(md) {
   .container-fluid {
-    padding: 2rem 4rem;
+    padding: 4rem 6rem;
   }
 
   #storefront {
@@ -315,7 +315,7 @@ body {
       @include make-col(9);
 
       .product {
-        margin-right: 1.4rem;
+        margin-right: 3rem;
       }
     }
 
