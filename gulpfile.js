@@ -19,12 +19,17 @@ const scriptSources = [
   path.join(__dirname, 'app/scripts/app.js')
 ];
 
+const fontSources = [
+  path.join(__dirname, 'node_modules/font-awesome/fonts/*')
+];
+
 gulp.task('styles', () => {
   const sassConfig = {
     includePaths: [
       require('node-bourbon').includePaths,
       path.join(__dirname, 'node_modules/tether/dist/css'),
-      path.join(__dirname, 'node_modules/bootstrap/scss')
+      path.join(__dirname, 'node_modules/bootstrap/scss'),
+      path.join(__dirname, 'node_modules/font-awesome/scss')
     ]
   };
 
@@ -55,7 +60,14 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest(path.join(__dirname, 'dist/scripts')));
 });
 
-gulp.task('serve', [ 'styles', 'scripts' ], () => {
+gulp.task('fonts', () => {
+  return gulp.src(fontSources)
+    .pipe(gulp.dest(path.join(__dirname, 'dist/fonts')));
+});
+
+gulp.task('build', [ 'styles', 'scripts', 'fonts' ]);
+
+gulp.task('serve', [ 'build' ], () => {
   browserSync.init({
     server: {
       baseDir: path.join(__dirname, 'dist')
@@ -79,5 +91,4 @@ gulp.task('watch', [ 'serve' ], () => {
   gulp.watch(path.join(__dirname, 'dist/*.html'), [ 'reload' ]);
 });
 
-gulp.task('build', [ 'styles', 'scripts' ]);
 gulp.task('default', [ 'watch' ]);
