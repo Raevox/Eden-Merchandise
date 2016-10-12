@@ -328,10 +328,9 @@ body {
 #shopping-cart {
   position: absolute;
   top: 5.5rem;
-  right: -2px; /* TODO: Change to -100% when done testing */
+  right: -24rem;
 
-  min-width: 20rem;
-
+  width: 24rem;
   padding: 2rem;
 
   font-size: 0;
@@ -345,12 +344,12 @@ body {
   text-align: right;
   transition: right 0.2s ease-out;
 
-  &.active {
-    right: -2px
+  &.open {
+    right: -2px;
   }
 
   #checkout {
-    div {
+    #order {
       font-size: 2rem;
       font-weight: bold;
 
@@ -361,6 +360,11 @@ body {
       margin: 0 0 1.2rem 0;
       padding: 0;
       border: 1px solid $accent;
+
+      &:last-of-type {
+        border-style: dotted;
+        margin: 0.4rem 0 0.4rem 0;
+      }
     }
 
     span {
