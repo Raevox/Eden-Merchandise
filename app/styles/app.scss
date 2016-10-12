@@ -88,7 +88,6 @@ body {
         background-color: $black;
         box-shadow: inset 0 0 0 3px $neutralPrimary;
 
-
         a {
           color: $neutralPrimary;
         }
@@ -116,6 +115,109 @@ body {
 
   background-color: $backgroundPrimary;
   border-top: 12px solid $backgroundAccent;
+}
+
+.product {
+  width: 22.4rem;
+  margin: 0 auto;
+
+  .display {
+    position: relative;
+
+    height: 20.9rem;
+
+    border: 2px solid $backgroundAccent;
+
+    .image {
+      height: 100%;
+
+      .front {
+        position: relative;
+      }
+
+      .back {
+        position: absolute;
+        top: 0;
+
+        @include transform(rotateY(-180deg));
+      }
+
+      .front,
+      .back {
+        @include size(100%);
+
+        text-align: center;
+        @include backface-visibility(hidden);
+
+        transition: transform 0.1s ease-out;
+      }
+
+      .front img,
+      .back img {
+        position: relative;
+        top: 50%;
+        @include transform(translateY(-50%));
+
+        height: 18rem;
+      }
+    }
+
+    .flip {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include size(3.2rem);
+
+      background-color: $backgroundPrimary;
+      border-left: 2px solid $backgroundAccent;
+      border-bottom: 2px solid $backgroundAccent;
+    }
+  }
+
+  .actions {
+    @include size(100%, 5.5rem);
+
+    font-size: 0;
+
+    border-right: 2px solid $backgroundAccent;
+    border-bottom: 2px solid $backgroundAccent;
+    border-left: 2px solid $backgroundAccent;
+
+    .action {
+      position: relative;
+
+      display: inline-block;
+      overflow: auto;
+
+      width: calc(25%);
+      height: 100%;
+
+      font-size: 2rem;
+
+      border-right: 2px solid $backgroundAccent;
+
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+  }
+
+  &.flipped > .display > .image {
+    .front {
+      @include transform(rotateY(-180deg));
+    }
+
+    .back {
+      @include transform(rotateY(0));
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .product {
+    display: inline-block;
+  }
 }
 
 /* 992px >= */
