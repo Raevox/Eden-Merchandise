@@ -115,6 +115,20 @@ body {
 
   background-color: $backgroundPrimary;
   border-top: 12px solid $backgroundAccent;
+
+  #storefront {
+    @include make-row();
+
+    #products {
+      @include make-col(12);
+    }
+
+    #shopping-cart {
+      position: fixed;
+      top: 0;
+      right: -100%;
+    }
+  }
 }
 
 .product {
@@ -214,6 +228,7 @@ body {
   }
 }
 
+/* 768px >= */
 @include media-breakpoint-up(md) {
   .product {
     display: inline-block;
@@ -253,8 +268,6 @@ body {
   }
 
   #storefront {
-    @include make-row();
-
     #products {
       @include make-col(9);
     }
