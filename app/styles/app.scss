@@ -46,7 +46,6 @@ body {
       top: 50%;
       @include transform(translate(-50%, -50%));
 
-      font-family: 'Avenir Next';
       font-weight: bold;
       font-size: 3.6rem;
 
@@ -96,7 +95,6 @@ body {
       }
 
       a {
-        font-family: 'Avenir Next';
         font-weight: bold;
         font-size: 3.6rem;
 
@@ -115,8 +113,8 @@ body {
   min-height: 800px; /* TODO: Remove after data is in place maybe? */
   margin-top: 26rem;
 
-  background-color: $bgPrimary;
-  border-top: 12px solid $bgAccent;
+  background-color: $primary;
+  border-top: 12px solid $accent;
 
   #storefront {
     @include make-row();
@@ -136,7 +134,7 @@ body {
 
     @include user-select(none);
 
-    border: 2px solid $primary;
+    border: 2px solid $accent;
 
     .image {
       height: 100%;
@@ -181,19 +179,19 @@ body {
 
       font-size: 2rem;
 
-      color: $primary;
-      background-color: $bgPrimary;
-      border-left: 2px solid $primary;
-      border-bottom: 2px solid $primary;
+      color: $accent;
+      background-color: $primary;
+      border-left: 2px solid $accent;
+      border-bottom: 2px solid $accent;
 
       transition: color 0.1s ease-out,
                   background-color 0.1s ease-out,
                   box-shadow 0.1s ease-out;
 
       &:hover {
-        color: $bgPrimary;
-        background-color: $primary;
-        box-shadow: inset 0 0 0 1px $bgPrimary;
+        color: $primary;
+        background-color: $accent;
+        box-shadow: inset 0 0 0 1px $primary;
       }
 
       .fa {
@@ -212,9 +210,9 @@ body {
 
     @include user-select(none);
 
-    border-right: 2px solid $primary;
-    border-bottom: 2px solid $primary;
-    border-left: 2px solid $primary;
+    border-right: 2px solid $accent;
+    border-bottom: 2px solid $accent;
+    border-left: 2px solid $accent;
 
     .action {
       position: relative;
@@ -227,9 +225,9 @@ body {
 
       font-size: 2rem;
 
-      color: $primary;
-      background-color: $bgPrimary;
-      border-right: 2px solid $primary;
+      color: $accent;
+      background-color: $primary;
+      border-right: 2px solid $accent;
 
       transition: color 0.1s ease-out,
                   background-color 0.1s ease-out,
@@ -240,9 +238,9 @@ body {
       }
 
       &:hover {
-        color: $bgPrimary;
-        background-color: $primary;
-        box-shadow: inset 0 0 0 1px $bgPrimary;
+        color: $primary;
+        background-color: $accent;
+        box-shadow: inset 0 0 0 1px $primary;
       }
 
       span {
@@ -271,8 +269,7 @@ body {
 
   .information {
     font-size: 1.6rem;
-
-    color: $primary;
+    font-weight: regular;
 
     .price {
       float: right;

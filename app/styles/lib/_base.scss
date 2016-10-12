@@ -2,11 +2,10 @@
 
 $black: hsl(204, 4%, 23%);
 
-$primary: hsl(89, 73%, 61%);
-$neutralPrimary: hsl(192, 15%, 94%);
+$primary: hsl(90, 100%, 96%);
+$accent: hsl(89, 69%, 72%);
 
-$bgPrimary: hsl(90, 100%, 96%);
-$bgAccent: hsl(89, 69%, 72%);
+$neutralPrimary: hsl(192, 15%, 94%);
 
 @mixin make-square($size, $color) {
   @include size($size);
@@ -14,13 +13,14 @@ $bgAccent: hsl(89, 69%, 72%);
 }
 
 @font-face {
-  src: url('../avenir-next-mediumCdn.otf');
+  src: url('../fonts/avenir-next-regular.otf');
 
   font-family: 'Avenir Next';
+  font-weight: regular;
 }
 
 @font-face {
-  src: url('../avenir-next-bold.otf');
+  src: url('../fonts/avenir-next-bold.otf');
 
   font-family: 'Avenir Next';
   font-weight: bold;
