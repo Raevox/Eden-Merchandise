@@ -9,7 +9,9 @@ $neutralPrimary: hsl(192, 15%, 94%);
   font-weight: bold;
 }
 
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
