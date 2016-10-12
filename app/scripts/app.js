@@ -12,6 +12,9 @@ function toggleShoppingCart() {
   $('#shopping-cart').toggleClass('open');
 }
 
-$('.flip').click(toggleProductFlip);
+function init() {
+  $('.flip').click(toggleProductFlip);
+  $('#shopping-cart-toggle').click(toggleShoppingCart);
+}
 
-$('#shopping-cart-toggle').click(toggleShoppingCart);
+$(document).ready(init);
