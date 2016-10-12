@@ -118,10 +118,6 @@ body {
   border-top: 12px solid $backgroundAccent;
 }
 
-/* 768px >= */
-@include media-breakpoint-up(md) {
-}
-
 /* 992px >= */
 @include media-breakpoint-up(lg) {
   #home-navigation {
@@ -153,8 +149,16 @@ body {
       }
     }
   }
-}
 
-/* 1200px >= */
-@include media-breakpoint-up(xl) {
+  #storefront {
+    @include make-row();
+
+    #products {
+      @include make-col(9);
+    }
+
+    #shopping-cart {
+      @include make-col(3);
+    }
+  }
 }
