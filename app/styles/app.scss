@@ -83,7 +83,8 @@ body {
                   box-shadow 0.1s ease-out,
                   border 0.1s ease-out;
 
-      &:hover {
+      &:hover,
+      &.active {
         background-color: $black;
         box-shadow: inset 0 0 0 3px $neutralPrimary;
 
@@ -135,7 +136,8 @@ body {
         background-color: hsla(0, 0%, 100%, 0.2);
         box-shadow: inset 0 0 0 1px $neutralPrimary;
 
-        &:hover {
+        &:hover,
+        &.active {
           background-color: $neutralPrimary;
           box-shadow: inset 0 0 0 3px $neutralPrimary;
           border-color: $black;
