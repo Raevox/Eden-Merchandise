@@ -66,36 +66,45 @@
     list-style: none;
 
     li {
-      padding: 0 1.6rem;
       margin-bottom: 2rem;
 
-      background-color: hsla(0, 0%, 100%, 0.8);
-      box-shadow: inset 0 0 0 3px $black;
-      border: 1px solid $neutralPrimary;
+      a {
+        display: block;
 
-      transition: background-color 0.2s ease-out,
-                  box-shadow 0.2s ease-out,
-                  border 0.2s ease-out;
+        padding: 0 1.6rem;
 
-      &:hover,
-      &.active {
-        background-color: $black;
-        box-shadow: inset 0 0 0 3px $neutralPrimary;
+        background-color: hsla(0, 0%, 100%, 0.8);
+        box-shadow: inset 0 0 0 3px $black;
+        border: 1px solid $neutralPrimary;
 
-        a {
-          color: $neutralPrimary;
+        text-decoration: none;
+
+        transition: background-color 0.2s ease-out,
+                    box-shadow 0.2s ease-out,
+                    border 0.2s ease-out;
+
+        span {
+          position: relative;
+          top: 0.3rem;
+
+          font-weight: bold;
+          font-size: 3.6rem;
+
+          color: hsl(204, 4%, 23%);
+          text-transform: uppercase;
+
+          transition: color 0.2s ease-out;
         }
       }
 
-      a {
-        font-weight: bold;
-        font-size: 3.6rem;
+      &:hover > a,
+      &.active > a {
+        background-color: $black;
+        box-shadow: inset 0 0 0 3px $neutralPrimary;
 
-        color: hsl(204, 4%, 23%);
-        text-transform: uppercase;
-        text-decoration: none;
-
-        transition: color 0.2s ease-out;
+        span {
+          color: $neutralPrimary;
+        }
       }
     }
   }
@@ -501,22 +510,26 @@
       li {
         display: inline-block;
 
-        background-color: hsla(0, 0%, 100%, 0.2);
-        box-shadow: inset 0 0 0 1px $neutralPrimary;
+        a {
+          display: block;
 
-        &:hover,
-        &.active {
+          background-color: hsla(0, 0%, 100%, 0.2);
+          box-shadow: inset 0 0 0 1px $neutralPrimary;
+
+          span {
+            color: $neutralPrimary;
+          }
+        }
+
+        &:hover > a,
+        &.active > a {
           background-color: $neutralPrimary;
           box-shadow: inset 0 0 0 3px $neutralPrimary;
           border-color: $black;
 
-          a {
+          span {
             color: hsl(204, 4%, 23%);
           }
-        }
-
-        a {
-          color: $neutralPrimary;
         }
       }
     }
