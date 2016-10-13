@@ -83,22 +83,20 @@ function addToCart(product) {
   return shoppingCart[name];
 }
 
-function removeFromCart(name) {
+function removeFromCart(name, all = false) {
   const product = shoppingCart[name];
 
-  if (product.quantity == 1) {
+  if (all || product.quantity == 1) {
     delete shoppingCart[name];
-    updateShoppingCart();
-
-    return 0;
+    $(`.product:contains(${name})`).removeClass('carted');
+  } else {
+    product.quantity--;
   }
-
-  product.quantity--;
 
   updateShoppingCart();
   writeShoppingCart();
 
-  return product.quantity;
+  return (product.quantity) ? product.quantity : 0;
 }
 
 function updateShoppingCartItems(clear = false) {
@@ -128,8 +126,8 @@ function updateShoppingCartItems(clear = false) {
         <div>${product.size}</div>
         <div>$${product.price}</div>
         <div>x${product.quantity} ($${quantityPrice})</div>
-        <div class="remove">Remove<span class="fa fa-fw fa-cart-arrow-down"></span></div>
-        <div class="remove">All<span class="fa fa-fw fa-times"></span></div>
+        <div class="remove" onclick="removeFromCart('${name}')">Remove<span class="fa fa-fw fa-cart-arrow-down"></span></div>
+        <div class="remove" onclick="removeFromCart('${name}', true)">All<span class="fa fa-fw fa-times"></span></div>
       </div>
       <hr />`;
   }
@@ -179,6 +177,8 @@ function init() {
   $('.fa-cart-plus').parent('.action').click(handleAddToCart);
 
   readShoppingCart();
+
+  global.removeFromCart = removeFromCart;
 }
 
 $(document).ready(init);
