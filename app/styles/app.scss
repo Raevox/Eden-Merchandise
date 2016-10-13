@@ -362,8 +362,7 @@ body {
   top: 5.5rem;
   right: -24rem;
 
-  width: 24rem;
-  height: 48rem;
+  max-height: 48rem;
   padding: 2rem;
   overflow-y: scroll;
 
@@ -393,6 +392,34 @@ body {
       font-size: 1.6rem;
 
       color: darken($accent, 15%);
+
+      .name {
+        font-weight: bold;
+
+        .color {
+          position: relative;
+          top: 0.2rem;
+
+          display: inline-block;
+
+          @include size(1.5rem);
+        }
+      }
+
+      .date-added {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .remove {
+        cursor: pointer;
+        @include user-select(none);
+        color: $secondary;
+      }
+
+      div:nth-of-type(6) {
+        margin-top: 1rem;
+      }
     }
 
     hr {
