@@ -360,8 +360,9 @@ body {
 #shopping-cart {
   position: absolute;
   top: 5.5rem;
-  right: -24rem;
+  right: calc(-100% - 2px);
 
+  max-width: calc(100% + 2px);
   max-height: 48rem;
   padding: 2rem;
   overflow-y: scroll;
@@ -483,6 +484,12 @@ body {
     display: inline-block;
     margin-top: 3rem;
     margin-right: 3rem;
+  }
+
+  #shopping-cart {
+    right: -24rem;
+
+    max-width: 24rem;
   }
 }
 
