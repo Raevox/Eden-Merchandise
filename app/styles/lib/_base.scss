@@ -36,5 +36,35 @@ $neutralPrimary: hsl(192, 15%, 94%);
 html, body {
   min-height: 100vh;
 
+  font-family: 'Avenir Next', 'PT Sans Narrow', sans-serif;
   font-size: 62.5%;
+
+  background-color: hsl(220, 20%, 3%);
+}
+
+hr {
+  margin-bottom: 3rem;
+
+  border: 1px solid $accent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+
+  color: darken($accent, 15);
+}
+
+h1 {
+  font-size: 4.2rem;
+}
+
+p {
+  font-size: 1.6rem;
+
+  color: darken($accent, 40);
 }

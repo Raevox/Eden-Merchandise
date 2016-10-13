@@ -1,15 +1,8 @@
 @import 'lib/base';
 
-body {
-  background-color: hsl(220, 20%, 3%);
-
-  font-family: 'Avenir Next', 'PT Sans Narrow', sans-serif;
-}
-
 #splash {
   position: absolute;
   top: 0;
-  z-index: -1;
 
   margin: 0 auto;
 
@@ -119,6 +112,10 @@ body {
 
   background-color: $primary;
   border-top: 12px solid $accent;
+
+  .container {
+    margin-top: 3rem;
+  }
 
   #storefront {
     font-size: 0;
