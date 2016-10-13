@@ -1,4 +1,5 @@
 global.jQuery = require('jquery');
+global.moment = require('moment');
 global.Tether = require('tether');
 require('bootstrap');
 
@@ -122,7 +123,7 @@ function updateShoppingCartItems(clear = false) {
     itemHTML += `
       <div class="item">
         <div class="name">${name} [ <span class="color" style="background-color: ${product.color}"></span> ]</div>
-        <div class="date-added">Added </div>
+        <div class="date-added">Added ${moment(product.timestamp).fromNow()}</div>
         <div>${product.size}</div>
         <div>$${product.price}</div>
         <div>x${product.quantity}</div>
