@@ -2,10 +2,12 @@
 
 const path = require('path');
 const gulp = require('gulp');
-const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const es = require('event-stream');
 const srcMaps = require('gulp-sourcemaps');
 const gutil = require('gulp-util');
+const gren = require('gulp-rename');
 const sass = require('gulp-sass');
 const browserify = require('browserify');
 const babel = require('gulp-babel');
@@ -17,7 +19,9 @@ const styleSources = [
 ];
 
 const scriptSources = [
-  path.join(__dirname, 'app/scripts/app.js')
+  './app/scripts/app.js',
+  './app/scripts/shoppingCart.js',
+  './app/scripts/map.js'
 ];
 
 const fontSources = [
@@ -47,19 +51,23 @@ gulp.task('scripts', () => {
     presets: [ 'es2015' ]
   };
 
-  const browserifyBundle = browserify({
-    entries: './app/scripts/app.js',
-    debug: true
+  const tasks = scriptSources.map(entry => {
+    return browserify({
+      entries: [ entry ],
+      debug: true
+    }).bundle()
+        .on('error', gutil.log)
+      .pipe(source(entry))
+      .pipe(buffer())
+      .pipe(srcMaps.init({ loadMaps: true }))
+        .pipe(babel(babelConfig))
+        .on('error', gutil.log)
+      .pipe(srcMaps.write())
+      .pipe(gren({ dirname: '', extname: '.bundle.js' }))
+      .pipe(gulp.dest(path.join(__dirname, 'dist/scripts')));
   });
 
-  return browserifyBundle.bundle()
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(srcMaps.init({ loadMaps: true }))
-      .pipe(babel(babelConfig))
-      .on('error', gutil.log)
-    .pipe(srcMaps.write())
-    .pipe(gulp.dest(path.join(__dirname, 'dist/scripts')));
+  return es.merge.apply(null, tasks);
 });
 
 gulp.task('fonts', () => {
