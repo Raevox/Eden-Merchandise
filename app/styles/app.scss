@@ -536,6 +536,25 @@
       border-color: lighten($accent, 15%);
       border-style: dotted;
     }
+
+    #map {
+      height: 0;
+      padding-bottom: 100%;
+
+      border: 2px solid $accent;
+
+      &:after {
+        content: '';
+
+        display: block;
+        position: relative;
+
+        @include size(100%);
+
+        pointer-events: none;
+        background-color: transparentize($accent, 0.85);
+      }
+    }
   }
 
   #form > hr,
@@ -566,6 +585,12 @@
       input,
       textarea {
         width: 70vw;
+      }
+    }
+
+    #address {
+      #map {
+        margin-bottom: 3rem;
       }
     }
   }
