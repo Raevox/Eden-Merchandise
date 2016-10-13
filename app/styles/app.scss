@@ -293,6 +293,36 @@ body {
       @include transform(rotateY(0));
     }
   }
+
+  &.carted {
+    .display {
+      border-color: $secondary;
+
+      transition: border-color 0.2s ease-out;
+    }
+
+    .flip {
+      color: $secondary;
+      border-color: $secondary;
+
+      transition: color 0.2s ease-out,
+                  border-color 0.2s ease-out;
+    }
+
+    .actions {
+      border-color: $secondary;
+
+      transition: border-color 0.2s ease-out;
+
+      .action {
+        color: $secondary;
+        border-color: $secondary;
+
+        transition: color 0.2s ease-out,
+                    border-color 0.2s ease-out;
+      }
+    }
+  }
 }
 
 #shopping-cart-toggle {
