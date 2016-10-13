@@ -5,6 +5,7 @@ const gulp = require('gulp');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const srcMaps = require('gulp-sourcemaps');
+const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const browserify = require('browserify');
 const babel = require('gulp-babel');
@@ -55,7 +56,8 @@ gulp.task('scripts', () => {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(srcMaps.init({ loadMaps: true }))
-    .pipe(babel(babelConfig))
+      .pipe(babel(babelConfig))
+      .on('error', gutil.log)
     .pipe(srcMaps.write())
     .pipe(gulp.dest(path.join(__dirname, 'dist/scripts')));
 });
