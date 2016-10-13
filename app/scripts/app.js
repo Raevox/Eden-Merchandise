@@ -23,22 +23,26 @@ function readShoppingCart() {
   const localCart = JSON.parse(localStorage.getItem('shoppingCart'));
 
   if (localCart && !$.isEmptyObject(localCart)) {
-    localCart.forEach(product => {
-      shoppingCart.push(product);
-    });
+    for (let name in localCart) {
+      $(`.product:contains(${name})`).addClass('carted');
+      shoppingCart[name] = localCart[name];
+    }
+
+    updateShoppingCart();
   }
 
   return shoppingCart;
 }
 
 function writeShoppingCart() {
-  if (!shoppingCart || !$.isEmptyObject(shoppingCart)) {
+  if ($.isEmptyObject(shoppingCart)) {
     localStorage.removeItem('shoppingCart');
-    return '[]';
+    return '{}';
   }
 
   const shoppingCartJSON = JSON.stringify(shoppingCart);
   localStorage.setItem('shoppingCart', shoppingCartJSON);
+
   return shoppingCartJSON;
 }
 
@@ -69,6 +73,9 @@ function addToCart(product) {
     shoppingCart[name] = buildProductObj(product);
   }
 
+  updateShoppingCart();
+  writeShoppingCart();
+
   return shoppingCart[name];
 }
 
@@ -77,17 +84,61 @@ function removeFromCart(name) {
 
   if (product.quantity == 1) {
     delete shoppingCart[name];
+    updateShoppingCart();
+
     return 0;
   }
 
   product.quantity--;
+
+  updateShoppingCart();
+  writeShoppingCart();
+
   return product.quantity;
+}
+
+function updateShoppingCartItems(clear = false) {
+  return;
+}
+
+function updateShoppingCartPrices(clear = false) {
+  if (clear) {
+    $('#subtotal, #tax, #total').html('0.00');
+    return;
+  }
+
+  let subtotal = 0.00;
+
+  for (let name in shoppingCart) {
+    const product = shoppingCart[name];
+    subtotal += product.price * product.quantity;
+  }
+
+  subtotal = Number(Math.round(subtotal + 'e2') + 'e-2');
+  const tax = Number(Math.round(subtotal * 0.0625 + 'e2') + 'e-2');
+  const total = Number(Math.round(subtotal + tax + 'e2') + 'e-2');
+
+  $('#subtotal').html(subtotal);
+  $('#tax').html(tax);
+  $('#total').html(total);
+}
+
+function updateShoppingCart() {
+  if ($.isEmptyObject(shoppingCart)) {
+    updateShoppingCartItems(true);
+    updateShoppingCartPrices(true);
+
+    return;
+  }
+
+  updateShoppingCartItems();
+  updateShoppingCartPrices();
 }
 
 function init() {
   $('.flip').click(toggleProductFlip);
   $('#shopping-cart-toggle').click(toggleShoppingCart);
-  $('.action > .fa-cart-plus').click(handleAddToCart);
+  $('.fa-cart-plus').parent('.action').click(handleAddToCart);
 
   readShoppingCart();
 }
