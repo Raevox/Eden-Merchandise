@@ -530,6 +530,10 @@
 
 /* 543px <= */
 @include media-breakpoint-down(sm) {
+  #storefront {
+    margin-top: 12rem;
+  }
+
   .product {
     margin-top: 3rem;
 
