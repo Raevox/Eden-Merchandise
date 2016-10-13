@@ -363,7 +363,9 @@ body {
   right: -24rem;
 
   width: 24rem;
+  height: 48rem;
   padding: 2rem;
+  overflow-y: scroll;
 
   font-size: 0;
 
@@ -378,6 +380,30 @@ body {
 
   &.open {
     right: -2px;
+  }
+
+  #items {
+    display: none;
+
+    &.active {
+      display: initial;
+    }
+
+    .item {
+      font-size: 1.6rem;
+
+      color: darken($accent, 15%);
+    }
+
+    hr {
+      border: 1px dotted $accent;
+
+      &:last-of-type {
+        margin-bottom: 2rem;
+
+        border: none;
+      }
+    }
   }
 
   #checkout {

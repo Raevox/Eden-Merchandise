@@ -28,6 +28,7 @@ function readShoppingCart() {
       shoppingCart[name] = localCart[name];
     }
 
+    $('#items').addClass('active');
     updateShoppingCart();
   }
 
@@ -53,10 +54,12 @@ function buildProductObj(product) {
       .substring(1)
   );
 
+  const size = product.find('.sizing > span').html();
   const color = product.find('.color > span').css('backgroundColor');
 
   return {
     price,
+    size,
     color,
     quantity: 1,
     timestamp: new Date()
@@ -98,6 +101,39 @@ function removeFromCart(name) {
 }
 
 function updateShoppingCartItems(clear = false) {
+  const itemList = $('#items');
+
+  if (clear) {
+    itemList.html('');
+    itemList.removeClass('active');
+
+    return;
+  }
+
+  if (!itemList.hasClass('active')) itemList.addClass('active');
+
+  let itemTotal = 0;
+  let itemHTML = ``;
+
+  for (let name in shoppingCart) {
+    const product = shoppingCart[name];
+
+    itemTotal += product.quantity;
+    itemHTML += `
+      <div class="item">
+        <div class="name">${name} [ <span class="color" style="background-color: ${product.color}"></span> ]</div>
+        <div class="date-added">Added </div>
+        <div>${product.size}</div>
+        <div>$${product.price}</div>
+        <div>x${product.quantity}</div>
+        <div class="remove">Remove<span class="fa fa-fw fa-cart-arrow-down"></span></div>
+        <div class="remove">All<span class="fa fa-fw fa-times"></span></div>
+      </div>
+      <hr />`;
+  }
+
+  itemList.html(itemHTML);
+
   return;
 }
 
