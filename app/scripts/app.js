@@ -118,6 +118,7 @@ function updateShoppingCartItems(clear = false) {
 
   for (let name in shoppingCart) {
     const product = shoppingCart[name];
+    const quantityPrice = Number(Math.round(product.price * product.quantity + 'e2') + 'e-2');
 
     itemTotal += product.quantity;
     itemHTML += `
@@ -126,7 +127,7 @@ function updateShoppingCartItems(clear = false) {
         <div class="date-added">Added ${moment(product.timestamp).fromNow()}</div>
         <div>${product.size}</div>
         <div>$${product.price}</div>
-        <div>x${product.quantity}</div>
+        <div>x${product.quantity} ($${quantityPrice})</div>
         <div class="remove">Remove<span class="fa fa-fw fa-cart-arrow-down"></span></div>
         <div class="remove">All<span class="fa fa-fw fa-times"></span></div>
       </div>
