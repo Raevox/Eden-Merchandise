@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raevox/Eden-Mock-Website.git"
+    "url": "git+https://github.com/raevox/Eden-Merchandise.git"
   },
   "author": "Manpreet \"Mannie\" Singh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/raevox/Eden-Mock-Website/issues"
+    "url": "https://github.com/raevox/Eden-Merchandise/issues"
   },
-  "homepage": "https://github.com/raevox/Eden-Mock-Website#readme",
+  "homepage": "https://github.com/raevox/Eden-Merchandise#readme",
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",
     "bootstrap": "^4.0.0-alpha.4",
